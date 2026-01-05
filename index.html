@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,20 +18,25 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             margin: 0;
         }
-        main{
+
+        main {
             margin-top: 100px;
         }
-        body::-webkit-scrollbar{
+
+        body::-webkit-scrollbar {
             width: 15px;
         }
-         body::-webkit-scrollbar-thumb{
+
+        body::-webkit-scrollbar-thumb {
             border-radius: 16px;
             background-color: yellow;
             --webkit-border-radius: 16px;
-         }
-         body::-webkit-scrollbar-track{
-              background: rgb(97, 97, 129);
-         }
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgb(97, 97, 129);
+        }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -70,7 +76,7 @@
             padding: 5px;
             border-radius: 2px;
             background-color: yellow;
-            color:  #0f172a;
+            color: #0f172a;
             font-weight: 600;
             text-transform: capitalize;
         }
@@ -79,6 +85,7 @@
             header {
                 flex-direction: column;
             }
+
             form {
                 margin-top: 10px;
             }
@@ -100,7 +107,7 @@
             font-size: 34px;
             text-align: center;
             margin: 20px;
-            color:  #0f172a;
+            color: #0f172a;
             text-transform: capitalize;
         }
 
@@ -108,16 +115,18 @@
             background-color: aliceblue;
             display: flex;
             flex-direction: column;
-            color:  #0f172a;
+            color: #0f172a;
             padding: 10px;
             text-transform: capitalize;
-             transition: all 0.3 ease-in-out;
+            transition: all 0.3 ease-in-out;
             cursor: pointer;
             border-radius: 7px;
         }
-        .recipe{
+
+        .recipe {
             translate: scale(1.1);
         }
+
         .recipe img {
             border-radius: 7px 7px 0 0;
             height: 250px;
@@ -125,16 +134,16 @@
         }
 
         .recipe h3 {
-            font-size: 22px;
+            font-size: 28px !important;
             font-weight: 600;
             text-transform: capitalize;
         }
 
         .recipe p {
             text-transform: capitalize;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 400;
-            color:  #455e99;
+            color: #455e99;
         }
 
         .recipe button {
@@ -142,7 +151,7 @@
             display: block;
             margin: 20px auto;
             background-color: yellow;
-            color:  #0f172a;
+            color: #0f172a;
             padding: 10px;
             font-weight: bold;
             text-transform: capitalize;
@@ -162,85 +171,117 @@
             left: 50%;
             transition: all 0.5s ease-in-out;
             overflow-y: scroll;
+            overflow-x: hidden;
             display: none;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
         }
-        .recipes-detail-section::-webkit-scrollbar{
+
+        .recipes-detail-section::-webkit-scrollbar {
             width: 10px;
         }
-        .recipes-detail-section::-webkit-scrollbar-thumb{
-            background-color:  #0f172a;
+
+        .recipes-detail-section::-webkit-scrollbar-thumb {
+            background-color: #0f172a;
             border-radius: 16px;
             --webkit-border-radius: 16px;
         }
+
         @media (max-width:500px) {
-            .recipes-detail-section{
+            .recipes-detail-section {
                 width: 90%;
             }
-                           .recipe-container {
+            main{
+            margin-top: 150px;
+        }
+            .recipe h3 {
+                font-size: 18px !important;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+
+            .recipe p {
+                font-size: 14px !important;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+
+            .recipe-container {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 15px;
                 padding: 5px;
-               }
-               .recipe{
-                padding: 0;
-               }
-               .recipe img{
-                height: 100px;
-               }
-               .recipe h3{
-                font-size: 18px;
-               }
-               .recipe p{
-                font-size: 14px;
-               }
-               .recipe button{
+            }
+            .recipe {
                 padding: 5px;
+            }
+            .recipe img {
+                height: 100px;
+            }
+
+            .recipe h3 {
+                margin: 0;
+                font-size: 18px;
+            }
+
+            .recipe p {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .recipe button {
+                padding: 8px;
                 border-radius: 2px;
                 font-size: 14px;
-               }
+            }
         }
+
         @media (max-width:992px) {
-            .recipes-detail-section{
+            .recipes-detail-section {
                 width: 80%;
             }
         }
-        .detail-title{
+
+        .detail-title {
             text-align: center;
             color: navy;
             margin: 10px;
             font-size: 36px;
         }
-        .detail-ingredient{
+
+        .detail-ingredient {
             font-size: 26px;
             color: blue;
             margin: 8px;
         }
-        .detail-ul{
+
+        .detail-ul {
             line-height: 30px;
             list-style: none;
         }
-        .detail-ul li{
+
+        .detail-ul li {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-weight: bold;
         }
-        .detail-instruction{
+
+        .detail-instruction {
             font-size: 26px;
             color: blue;
             margin: 8px;
         }
-        .detail-para{
+
+        .detail-para {
             line-height: 30px;
             font-size: 18px;
         }
-        .recipe-closeBtn{
+
+        .recipe-closeBtn {
             padding: 5px;
             color: #fff;
             border: none;
             background: navy;
             position: relative;
-            left: 530px;
+            left: 95%;
             border-radius: 3px;
             font-weight: bold;
             font-size: 18px;
@@ -271,7 +312,7 @@
             <div class="detail-content">
             </div>
         </div>
-        </main>
+    </main>
     <script>
         const recipeContainer = document.querySelector('.recipe-container');
         const searchbox = document.querySelector('.searchbox');
@@ -324,7 +365,7 @@
                 //     break;
                 // };
             };
-        return IngredientList;
+            return IngredientList;
         };
 
         const openpopup = (meal) => {
@@ -341,16 +382,16 @@
         };
 
         recipeCloseBtn.addEventListener('click', () => {
-            DetailContent.parentElement.style.display="none";
+            DetailContent.parentElement.style.display = "none";
         })
         searchbtn.addEventListener('click', (e) => {
             e.preventDefault();
             const searchInput = searchbox.value.trim();
-            DetailContent.parentElement.style.display="none";
+            DetailContent.parentElement.style.display = "none";
             if (!searchInput) {
                 recipeContainer.innerHTML = `<h2>first type meals..</h2>`
                 return;
-            }else {
+            } else {
                 fetchrecipe(searchInput);
             }
         });

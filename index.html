@@ -314,12 +314,17 @@
         </div>
     </main>
     <script>
+        // cards and header
         const recipeContainer = document.querySelector('.recipe-container');
         const searchbox = document.querySelector('.searchbox');
         const searchbtn = document.querySelector('.searchbtn');
+        // end
+        // close btn of detail section and content
         const recipeCloseBtn = document.querySelector('.recipe-closeBtn');
         const DetailContent = document.querySelector('.detail-content');
+            // end
 
+            // fetch recipe and using loop to get content for card
         const fetchrecipe = async (query) => {
             recipeContainer.innerHTML = "<h2>fetching recipe...</h2>";
             try {
@@ -340,23 +345,26 @@
                     button.classList.add('view-detail')
                     button.textContent = 'view recipe';
                     recipeDiv.append(button);
-
+                    // using addEventListener to open recipe detail poppup
                     button.addEventListener('click', () => {
                         openpopup(meal);
                     });
-
+                    //    append recipe div in container 
                     recipeContainer.append(recipeDiv);
                 });
             }
+            // catching error if user typing anything wrong
             catch (error) {
-                recipeContainer.innerHTML = `<h2>aesi koi recipe market mai nhi aayi😂</h2>`
-            }
-        }
-
+                recipeContainer.innerHTML = `<h2>sorry recipe not found😔</h2>`
+            };
+        };
+        //   fetchIngredients of detail
         const fetchIngredients = (meal) => {
             let IngredientList = "";
+            // using loop for getting all ingredient detail
             for (let i = 0; i <= 20; i++) {
                 const Ingredient = meal[`strIngredient${i}`];
+                // condition if ingredient is available so show them if not so break loop 
                 if (Ingredient) {
                     const measure = meal[`strMeasure${i}`];
                     IngredientList += `<li>${measure} ${Ingredient}</li>`;
@@ -367,7 +375,7 @@
             };
             return IngredientList;
         };
-
+                //  pop of detail section
         const openpopup = (meal) => {
             DetailContent.innerHTML = `
     <h2 class="detail-title">${meal.strMeal}</h2>
@@ -378,16 +386,20 @@
          <p class="detail-para">${meal.strInstructions}</p>
     </div>
     `;
+        //    showing detail section because it was display none
             DetailContent.parentElement.style.display = "block";
         };
-
+        // add eventlistener for closing pop up
         recipeCloseBtn.addEventListener('click', () => {
             DetailContent.parentElement.style.display = "none";
         })
+        // addEventListener for showing recipe
         searchbtn.addEventListener('click', (e) => {
+            // we use preventdefault for not fresh page by default
             e.preventDefault();
             const searchInput = searchbox.value.trim();
             DetailContent.parentElement.style.display = "none";
+            // using condition if ingredient exixst or not
             if (!searchInput) {
                 recipeContainer.innerHTML = `<h2>first type meals..</h2>`
                 return;
@@ -395,6 +407,7 @@
                 fetchrecipe(searchInput);
             }
         });
+        // end script
     </script>
 </body>
 </html>

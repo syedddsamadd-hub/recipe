@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECIPE APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+        }
+        main{
+            margin-top: 100px;
+        }
+        body::-webkit-scrollbar{
+            width: 15px;
+        }
+         body::-webkit-scrollbar-thumb{
+            border-radius: 16px;
+            background-color: yellow;
+            --webkit-border-radius: 16px;
+         }
+         body::-webkit-scrollbar-track{
+              background: rgb(97, 97, 129);
+         }
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            align-items: center;
+            background-color: #0f172a;
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: yellow;
+            text-shadow: 1px 2px 2px yellowgreen;
+            text-transform: uppercase;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        form input {
+            font-size: 18px;
+            flex-grow: 2;
+            margin-right: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 2px;
+        }
+
+        form button {
+            border: none;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 2px;
+            background-color: yellow;
+            color:  #0f172a;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        @media (max-width:600px) {
+            header {
+                flex-direction: column;
+            }
+            form {
+                margin-top: 10px;
+            }
+        }
+
+        .recipe-container {
+            /* text-align: center; */
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+            width: 100%;
+            padding: 20px;
+            margin: 10px auto;
+            /* place-items: center; */
+        }
+
+        .recipe-container h2 {
+            font-size: 34px;
+            text-align: center;
+            margin: 20px;
+            color:  #0f172a;
+            text-transform: capitalize;
+        }
+
+        .recipe {
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            color:  #0f172a;
+            padding: 10px;
+            text-transform: capitalize;
+             transition: all 0.3 ease-in-out;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+        .recipe{
+            translate: scale(1.1);
+        }
+        .recipe img {
+            border-radius: 7px 7px 0 0;
+            height: 250px;
+            max-width: 100%;
+        }
+
+        .recipe h3 {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .recipe p {
+            text-transform: capitalize;
+            font-size: 18px;
+            font-weight: 400;
+            color:  #455e99;
+        }
+
+        .recipe button {
+            font-size: 20px;
+            display: block;
+            margin: 20px auto;
+            background-color: yellow;
+            color:  #0f172a;
+            padding: 10px;
+            font-weight: bold;
+            text-transform: capitalize;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .recipes-detail-section {
+            background-color: yellow;
+            padding: 10px;
+            width: 40%;
+            height: 300px;
+            border-radius: 7px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transition: all 0.5s ease-in-out;
+            overflow-y: scroll;
+            display: none;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+        .recipes-detail-section::-webkit-scrollbar{
+            width: 10px;
+        }
+        .recipes-detail-section::-webkit-scrollbar-thumb{
+            background-color:  #0f172a;
+            border-radius: 16px;
+            --webkit-border-radius: 16px;
+        }
+        @media (max-width:500px) {
+            .recipes-detail-section{
+                width: 90%;
+            }
+                           .recipe-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+                padding: 5px;
+               }
+               .recipe{
+                padding: 0;
+               }
+               .recipe img{
+                height: 100px;
+               }
+               .recipe h3{
+                font-size: 18px;
+               }
+               .recipe p{
+                font-size: 14px;
+               }
+               .recipe button{
+                padding: 5px;
+                border-radius: 2px;
+                font-size: 14px;
+               }
+        }
+        @media (max-width:992px) {
+            .recipes-detail-section{
+                width: 80%;
+            }
+        }
+        .detail-title{
+            text-align: center;
+            color: navy;
+            margin: 10px;
+            font-size: 36px;
+        }
+        .detail-ingredient{
+            font-size: 26px;
+            color: blue;
+            margin: 8px;
+        }
+        .detail-ul{
+            line-height: 30px;
+            list-style: none;
+        }
+        .detail-ul li{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+        }
+        .detail-instruction{
+            font-size: 26px;
+            color: blue;
+            margin: 8px;
+        }
+        .detail-para{
+            line-height: 30px;
+            font-size: 18px;
+        }
+        .recipe-closeBtn{
+            padding: 5px;
+            color: #fff;
+            border: none;
+            background: navy;
+            position: relative;
+            left: 530px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 18px;
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>recipe app</h1>
+        </nav>
+        <form>
+            <input type="text" class="searchbox" placeholder="Search Recipe....">
+            <button type="submit" class="searchbtn">Search</button>
+        </form>
+    </header>
+    <main>
+        <!-- for cards -->
+        <div class="recipe-container">
+            <h2>find your favourites recipe?</h2>
+        </div>
+        <!-- for DetailContent -->
+        <div class="recipes-detail-section">
+            <button type="button" class="recipe-closeBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="detail-content">
+            </div>
+        </div>
+        </main>
+    <script>
+        const recipeContainer = document.querySelector('.recipe-container');
+        const searchbox = document.querySelector('.searchbox');
+        const searchbtn = document.querySelector('.searchbtn');
+        const recipeCloseBtn = document.querySelector('.recipe-closeBtn');
+        const DetailContent = document.querySelector('.detail-content');
+
+        const fetchrecipe = async (query) => {
+            recipeContainer.innerHTML = "<h2>fetching recipe...</h2>";
+            try {
+                const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+                const response = await data.json();
+
+                recipeContainer.innerHTML = "";
+                response.meals.forEach(meal => {
+                    const recipeDiv = document.createElement("div");
+                    recipeDiv.classList.add('recipe');
+                    recipeDiv.innerHTML = `
+                    <img src="${meal.strMealThumb}" alt="">
+                     <h3>${meal.strMeal}</h3>
+                      <p>${meal.strArea} dish</p>
+                       <p>belongs to ${meal.strCategory} category</p>                
+                `
+                    const button = document.createElement('button');
+                    button.classList.add('view-detail')
+                    button.textContent = 'view recipe';
+                    recipeDiv.append(button);
+
+                    button.addEventListener('click', () => {
+                        openpopup(meal);
+                    });
+
+                    recipeContainer.append(recipeDiv);
+                });
+            }
+            catch (error) {
+                recipeContainer.innerHTML = `<h2>aesi koi recipe market mai nhi aayi😂</h2>`
+            }
+        }
+
+        const fetchIngredients = (meal) => {
+            let IngredientList = "";
+            for (let i = 0; i <= 20; i++) {
+                const Ingredient = meal[`strIngredient${i}`];
+                if (Ingredient) {
+                    const measure = meal[`strMeasure${i}`];
+                    IngredientList += `<li>${measure} ${Ingredient}</li>`;
+                }
+                // else{
+                //     break;
+                // };
+            };
+        return IngredientList;
+        };
+
+        const openpopup = (meal) => {
+            DetailContent.innerHTML = `
+    <h2 class="detail-title">${meal.strMeal}</h2>
+         <h3 class="detail-ingredient">Ingredients:</h3>
+    <ul class="detail-ul">${fetchIngredients(meal)}</ul>
+        <div>
+         <h3 class="detail-instruction">Instruction:</h3>
+         <p class="detail-para">${meal.strInstructions}</p>
+    </div>
+    `;
+            DetailContent.parentElement.style.display = "block";
+        };
+
+        recipeCloseBtn.addEventListener('click', () => {
+            DetailContent.parentElement.style.display="none";
+        })
+        searchbtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const searchInput = searchbox.value.trim();
+            DetailContent.parentElement.style.display="none";
+            if (!searchInput) {
+                recipeContainer.innerHTML = `<h2>first type meals..</h2>`
+                return;
+            }else {
+                fetchrecipe(searchInput);
+            }
+        });
+    </script>
+</body>
+</html>

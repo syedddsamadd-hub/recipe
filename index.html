@@ -292,7 +292,7 @@
 <body>
     <header>
         <nav>
-            <h1>recipe app</h1>
+            <h1><i class="fas fa-utensils"></i> recipe app</h1>
         </nav>
         <form>
             <input type="text" class="searchbox" placeholder="Search Recipe....">
@@ -342,7 +342,7 @@
                        <p>belongs to ${meal.strCategory} category</p>                
                 `
                     const button = document.createElement('button');
-                    button.classList.add('view-detail')
+                     button.classList.add('view-detail')
                     button.textContent = 'view recipe';
                     recipeDiv.append(button);
                     // using addEventListener to open recipe detail poppup
